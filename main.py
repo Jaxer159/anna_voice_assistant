@@ -4,6 +4,8 @@ import pyttsx3 as px
 import sys
 import webbrowser
 import data
+import datetime
+import random
 
 def command():
 	R = sr.Recognizer()
@@ -11,7 +13,7 @@ def command():
 	with sr.Microphone() as source:
 		print("Говорите...")
 		R.pause_threshold = 1
-		R.adjust_for_ambient_noise(source, duration=1)
+		R.adjust_for_ambient_noise(source, duration=0.5)
 		audio = R.listen(source)
 
 	try:
@@ -30,7 +32,10 @@ def talk(words):
 
 def make(task):
 	if task in data.hello:
-		talk("Здраствуйте!")
+		talk(random.choice(data.hello))
+	elif task in data.goodbye:
+		talk(random.choice(data.goodbye))
+		sys.exit()
 
 while True:
 	make(command())
