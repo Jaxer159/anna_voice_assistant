@@ -14,7 +14,7 @@ def command():
 
 	with sr.Microphone() as source:
 		print("Говорите...")
-		R.pause_threshold = 1
+		R.pause_threshold = 1.5
 		R.adjust_for_ambient_noise(source, duration=0.5)
 		audio = R.listen(source)
 
@@ -39,7 +39,9 @@ def make(task):
 		talk(random.choice(data.goodbye))
 		sys.exit()
 	elif task in data.myname:
-		talk("Моё имя Anna")
+		talk("Меня зовут Anna")
+	elif task in "как дела как делишки как настроение":
+		talk(random.choice(data.howareyouanswer))
 	elif task == "курс доллара к гривне":
 		DOLLAR_UAH = 'https://www.google.com/search?q=%D0%BA%D1%83%D1%80%D1%81+%D0%B4%D0%BE%D0%BB%D0%B0%D1%80%D0%B0&oq=%D0%BA%D1%83%D1%80%D1%81+%D0%B4%D0%BE%D0%BB%D0%B0&aqs=chrome.1.69i57j0i20i263i433j0i433j0i20i263i433j0j0i131i433j0j0i10l2j0.2318j0j7&sourceid=chrome&ie=UTF-8'
 		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36'}
@@ -47,6 +49,19 @@ def make(task):
 		soup = BeautifulSoup(full_page.content, 'html.parser')
 		convert = soup.findAll("span", {"class": "DFlfde SwHCTb"})
 		talk("Курс доллара " + str(convert[0].text) + " гривны")
+	elif task == "открой браузер":
+		talk("Открываю...")
+		webbrowser.open_new("https://google.com")
+	elif task == "спасибо":
+		talk("Рада стараться!")
+	elif task == "молодец":
+		talk("Спасибо!")
+	elif task == "открой youtube":
+		talk("Открываю...")
+		webbrowser.open_new("https://www.youtube.com/")
+	elif task == "открой гитхаб":
+		talk("Открываю...")
+		webbrowser.open_new("https://github.com/")
 
 while True:
 	make(command())
