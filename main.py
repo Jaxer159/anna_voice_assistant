@@ -39,7 +39,7 @@ def make(task):
 		talk(random.choice(data.goodbye))
 		sys.exit()
 	elif task in data.myname:
-		talk("Моё имя Steve")
+		talk("Моё имя Anna")
 	elif task == "курс доллара к гривне":
 		DOLLAR_UAH = 'https://www.google.com/search?q=%D0%BA%D1%83%D1%80%D1%81+%D0%B4%D0%BE%D0%BB%D0%B0%D1%80%D0%B0&oq=%D0%BA%D1%83%D1%80%D1%81+%D0%B4%D0%BE%D0%BB%D0%B0&aqs=chrome.1.69i57j0i20i263i433j0i433j0i20i263i433j0j0i131i433j0j0i10l2j0.2318j0j7&sourceid=chrome&ie=UTF-8'
 		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36'}
