@@ -29,6 +29,8 @@ def command():
 
 def talk(words):
 	engine = px.init()
+	rate = engine.getProperty('rate')
+	engine.setProperty('rate', rate-40)
 	engine.say(words)
 	engine.runAndWait()
 
