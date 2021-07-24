@@ -90,10 +90,7 @@ def make(task):
 	elif task == "открой гитхаб":
 		talk("Открываю...")
 		webbrowser.open_new("https://github.com/")
-	elif task == "подбрось монетку":
-		flip_coin = ["Орел", "Решка"]
-		talk(random.choice(flip_coin))
-	elif task == "монетка":
+	elif task in data.flipcoin:
 		flip_coin = ["Орел", "Решка"]
 		talk(random.choice(flip_coin))
 	elif task == "повтори":
