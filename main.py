@@ -95,6 +95,12 @@ def make(task):
 	elif task in data.flip:
 		flip_coin = ["Орел", "Решка"]
 		talk(random.choice(flip_coin))
+	elif task == "повтори":
+		talk("Надо было слушать!")
+	elif task == "я красивый":
+		talk("Красивее некуда")
+	elif task == "я красивый?":
+		talk("Красивее некуда")
 
 while True:
 	make(command())
