@@ -20,13 +20,13 @@ def talk(words):
 now = datetime.datetime.now()
 
 if now.hour >= 6 and now.hour < 12:
-    talk("Доброе утро!")
+    talk("Доброе утро! Сейчас " + str(now.hour) + ":" + str(now.minute))
 elif now.hour >= 12 and now.hour < 18:
-    talk("Добрый день!")
+    talk("Добрый день! Сейчас " + str(now.hour) + ":" + str(now.minute))
 elif now.hour >= 18 and now.hour < 23:
-    talk("Добрый вечер!")
+    talk("Добрый вечер! Сейчас " + str(now.hour) + ":" + str(now.minute))
 else:
-    talk("Доброй ночи!")
+    talk("Доброй ночи! Сейчас " + str(now.hour) + ":" + str(now.minute))
 
 def command():
 	R = sr.Recognizer()
@@ -54,7 +54,7 @@ def make(task):
 		sys.exit()
 	elif task in data.myname:
 		talk("Меня зовут Anna")
-	elif task in "как дела как делишки как настроение":
+	elif task in data.howareyou:
 		talk(random.choice(data.howareyouanswer))
 	elif task == "почему":
 		talk("Потому что потому")
@@ -82,25 +82,26 @@ def make(task):
 	elif task == "открой браузер":
 		talk("Открываю...")
 		webbrowser.open_new("https://google.com")
-	elif task == "спасибо":
+	elif task in data.thankyou:
 		talk("Рада стараться!")
-	elif task == "молодец":
-		talk("Спасибо!")
 	elif task == "открой youtube":
 		talk("Открываю...")
 		webbrowser.open_new("https://www.youtube.com/")
 	elif task == "открой гитхаб":
 		talk("Открываю...")
 		webbrowser.open_new("https://github.com/")
-	elif task in data.flip:
+	elif task == "подбрось монетку":
+		flip_coin = ["Орел", "Решка"]
+		talk(random.choice(flip_coin))
+	elif task == "монетка":
 		flip_coin = ["Орел", "Решка"]
 		talk(random.choice(flip_coin))
 	elif task == "повтори":
 		talk("Надо было слушать!")
 	elif task == "я красивый":
 		talk("Красивее некуда")
-	elif task == "я красивый?":
-		talk("Красивее некуда")
+	elif task == "сколько часов":
+		talk(str(now.hour) + ":" + str(now.minute))
 
 while True:
 	make(command())
