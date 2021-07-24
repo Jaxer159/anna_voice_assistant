@@ -9,6 +9,25 @@ import random
 import requests
 from bs4 import BeautifulSoup
 
+
+def talk(words):
+	engine = px.init()
+	rate = engine.getProperty('rate')
+	engine.setProperty('rate', rate-40)
+	engine.say(words)
+	engine.runAndWait()
+
+now = datetime.datetime.now()
+
+if now.hour >= 6 and now.hour < 12:
+    talk("Доброе утро!")
+elif now.hour >= 12 and now.hour < 18:
+    talk("Добрый день!")
+elif now.hour >= 18 and now.hour < 23:
+    talk("Добрый вечер!")
+else:
+    talk("Доброй ночи!")
+
 def command():
 	R = sr.Recognizer()
 
@@ -26,13 +45,6 @@ def command():
 		task = command()
 
 	return task
-
-def talk(words):
-	engine = px.init()
-	rate = engine.getProperty('rate')
-	engine.setProperty('rate', rate-40)
-	engine.say(words)
-	engine.runAndWait()
 
 def make(task):
 	if task in data.hello:
