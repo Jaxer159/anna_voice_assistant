@@ -4,6 +4,7 @@ import pyttsx3 as px
 import sys
 import webbrowser
 import data
+import time
 import datetime
 import random
 import requests
@@ -20,13 +21,13 @@ def talk(words):
 now = datetime.datetime.now()
 
 if now.hour >= 6 and now.hour < 12:
-    talk("Доброе утро! Сейчас " + str(now.hour) + ":" + str(now.minute))
+	talk("Доброе утро! Сейчас " + str(now.hour) + ":" + str(now.minute))
 elif now.hour >= 12 and now.hour < 18:
-    talk("Добрый день! Сейчас " + str(now.hour) + ":" + str(now.minute))
+	talk("Добрый день! Сейчас " + str(now.hour) + ":" + str(now.minute))
 elif now.hour >= 18 and now.hour < 23:
-    talk("Добрый вечер! Сейчас " + str(now.hour) + ":" + str(now.minute))
+	talk("Добрый вечер! Сейчас " + str(now.hour) + ":" + str(now.minute))
 else:
-    talk("Доброй ночи! Сейчас " + str(now.hour) + ":" + str(now.minute))
+	talk("Доброй ночи! Сейчас " + str(now.hour) + ":" + str(now.minute))
 
 def command():
 	R = sr.Recognizer()
@@ -98,7 +99,32 @@ def make(task):
 	elif task == "я красивый":
 		talk("Красивее некуда")
 	elif task == "сколько часов":
+		now = datetime.datetime.now()
 		talk(str(now.hour) + ":" + str(now.minute))
+	elif task == "отдохни 5 минут":
+		talk("Хорошо я отдохну 5 минут.")
+		time.sleep(300)
+		talk("Я снова здесь")
+	elif task == "отдохни 10 минут":
+		talk("Хорошо я отдохну 10 минут.")
+		time.sleep(600)
+		talk("Я снова здесь")
+	elif task == "отдохни 15 минут":
+		talk("Хорошо я отдохну 15 минут.")
+		time.sleep(900)
+		talk("Я снова здесь")
+	elif task == "отдохни 30 минут":
+		talk("Хорошо я отдохну 30 минут.")
+		time.sleep(1800)
+		talk("Я снова здесь")
+	elif task == "отдохни 1 час":
+		talk("Хорошо я отдохну 1 час.")
+		time.sleep(3600)
+		talk("Я снова здесь")
+	elif task == "отдохни 2 часа":
+		talk("Хорошо я отдохну 2 часа.")
+		time.sleep(7200)
+		talk("Я снова здесь")
 
 while True:
 	make(command())
