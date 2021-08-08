@@ -98,6 +98,8 @@ def make(task):
 		talk("Надо было слушать!")
 	elif task == "я красивый":
 		talk("Красивее некуда")
+	elif task in data.whattodo:
+		talk("Делай что считаешь нужным.")
 	elif task == "сколько часов":
 		now = datetime.datetime.now()
 		talk(str(now.hour) + ":" + str(now.minute))
