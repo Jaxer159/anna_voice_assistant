@@ -6,3 +6,4 @@ pip install pyttsx3
 pip install SpeechRecognition
 pip install requests
 pip install bs4
+pause
