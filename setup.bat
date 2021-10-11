@@ -1,3 +1,4 @@
+echo "Install packages... Need PYTHON and PIP!"
 pip install pipwin
 pipwin install pyaudio
 pip install pywin32
