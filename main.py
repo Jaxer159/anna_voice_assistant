@@ -98,6 +98,9 @@ def make(task):
 		talk("Надо было слушать!")
 	elif task == "я красивый":
 		talk("Красивее некуда")
+	elif task in data.offpc:
+		talk("Окей я выключаю твой компютер через 3 секунды")
+		os.system("shutdown -s -t 03")
 	elif task in data.whattodo:
 		talk("Делай что считаешь нужным.")
 	elif task == "сколько часов":
