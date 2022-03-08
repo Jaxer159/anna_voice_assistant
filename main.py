@@ -103,6 +103,9 @@ def make(task):
 		os.system("shutdown -s -t 03")
 	elif task in data.whattodo:
 		talk("Делай что считаешь нужным.")
+	elif task in "да или нет":
+		yes_or_no = ["да", "нет", "не знаю"]
+		talk(random.choice(yes_or_no))
 	elif task == "сколько часов":
 		now = datetime.datetime.now()
 		talk(str(now.hour) + ":" + str(now.minute))
