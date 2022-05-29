@@ -109,6 +109,8 @@ def make(task):
 	elif task == "сколько часов":
 		now = datetime.datetime.now()
 		talk(str(now.hour) + ":" + str(now.minute))
+	elif task in data.acquaintance:
+		talk("Я что-то вроде робота, искусственный интеллект.")
 	elif task == "отдохни 5 минут":
 		talk("Хорошо я отдохну 5 минут.")
 		time.sleep(300)
