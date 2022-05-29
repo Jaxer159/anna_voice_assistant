@@ -57,7 +57,7 @@ def make(task):
 		talk("Меня зовут Anna")
 	elif task in data.howareyou:
 		talk(random.choice(data.howareyouanswer))
-	elif task == "почему":
+	elif "почему" in task:
 		talk("Потому что потому")
 	elif task == "курс доллара" or task == "а какой курс доллара":
 		USD_UAH = 'https://www.google.com/search?q=%D0%BA%D1%83%D1%80%D1%81+%D0%B4%D0%BE%D0%BB%D0%B0%D1%80%D0%B0&oq=%D0%BA%D1%83%D1%80%D1%81+%D0%B4%D0%BE%D0%BB%D0%B0&aqs=chrome.1.69i57j0i20i263i433j0i433j0i20i263i433j0j0i131i433j0j0i10l2j0.2318j0j7&sourceid=chrome&ie=UTF-8'
@@ -96,6 +96,8 @@ def make(task):
 		talk(random.choice(flip_coin))
 	elif task == "повтори":
 		talk("Надо было слушать!")
+	elif "повтори" in task:
+		talk(task.replace("повтори", ""))
 	elif task == "я красивый":
 		talk("Красивее некуда")
 	elif task in data.offpc:
@@ -103,7 +105,7 @@ def make(task):
 		os.system("shutdown -s -t 03")
 	elif task in data.whattodo:
 		talk("Делай что считаешь нужным.")
-	elif task in "да или нет":
+	elif "да или нет" in task:
 		yes_or_no = ["да", "нет", "не знаю"]
 		talk(random.choice(yes_or_no))
 	elif task == "сколько часов":
