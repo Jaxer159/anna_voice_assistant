@@ -78,7 +78,7 @@ def make(task):
 		headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36'}
 		full_page = requests.get(BTC_USD, headers=headers)
 		soup = BeautifulSoup(full_page.content, 'html.parser')
-		convert = soup.findAll("span", {"class": "DFlfde SwHCTb"})
+		convert = soup.findAll("span", {"class": "pclqee"})
 		talk("Курс биткоина " + str(convert[0].text) + " доллара")
 	elif task == "открой браузер":
 		talk("Открываю...")
