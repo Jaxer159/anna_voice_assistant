@@ -80,15 +80,15 @@ def make(task):
 		soup = BeautifulSoup(full_page.content, 'html.parser')
 		convert = soup.findAll("span", {"class": "pclqee"})
 		talk("Курс биткоина " + str(convert[0].text) + " доллара")
-	elif task == "открой браузер":
+	elif task == "открой браузер" or task == "браузер" or task == "интернет":
 		talk("Открываю...")
 		webbrowser.open_new("https://google.com")
 	elif task in data.thankyou:
 		talk("Рада стараться!")
-	elif task == "открой youtube":
+	elif task == "открой youtube" or task == "youtube":
 		talk("Открываю...")
 		webbrowser.open_new("https://www.youtube.com/")
-	elif task == "открой гитхаб":
+	elif task == "открой гитхаб" or task == "github":
 		talk("Открываю...")
 		webbrowser.open_new("https://github.com/")
 	elif task in data.flipcoin:
